@@ -1,0 +1,13 @@
+# dsh-voice-input bundle patch: 注入语音输入插件（host 半 + client 半）。
+# host 半：放开麦克风权限 + 注册同源 ASR 路由（key 只在 host 侧解析）。
+# client 半：输入框右下角麦克风按钮（conversation.input.right slot）。
+- insert:
+    - id: voice-input
+      name: 'dsh-voice-input'
+      config:
+        baseURL: ""                # 你的 OpenAI 兼容 ASR 网关地址（必填）
+        model: qwen3-asr-flash
+        apiKeyEnv: ALIYUNBAILIAN_API_KEY
+        language: zh
+        routePath: /voice-asr/transcribe
+        maxBodyBytes: 15728640

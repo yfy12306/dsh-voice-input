@@ -1,0 +1,37 @@
+{
+  "name": "dsh-voice-input",
+  "description": "DSH 语音输入插件：输入框右下角麦克风按钮，录音后经 host 侧同源路由转发 qwen3-asr-flash 识别，识别文本插入输入框草稿可编辑后发送。",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.3.1"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-client-ui-slots": "^0.2.0-rc.1"
+  },
+  "dsh": {
+    "client": {
+      "platform": "web"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
